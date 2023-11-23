@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let urlString = "https://jsonplaceholder.typicode.com/users"
-    
     private var users = [User]()
     
     private let tableView: UITableView = {
@@ -25,7 +23,7 @@ class ViewController: UIViewController {
         setTableView()
         
         async {
-            let result = await Request.fetchUsers(from: urlString)
+            let result = await Request.fetchUsers()
             switch result {
             case .success(let users):
                 self.users = users

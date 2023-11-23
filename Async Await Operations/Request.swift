@@ -14,8 +14,8 @@ enum MyError: Error {
 
 class Request {
     
-    static func fetchUsers(from urlString: String) async -> Result<[User], Error> {
-        guard let url = URL(string: urlString) else {
+    static func fetchUsers() async -> Result<[User], Error> {
+        guard let url = URL(string: URL_STRING) else {
             return .failure(MyError.failedToGetUsers)
         }
         var users = [User]()
